@@ -55,3 +55,7 @@ npm start
 ## GitHub
 
 O repositório está em [CarlosGit0519/beleza-perto](https://github.com/CarlosGit0519/beleza-perto). O workflow GitHub Actions instala dependências, verifica TypeScript e compila o frontend em pushes e pull requests para `main`.
+
+## Publicar o frontend no Vercel
+
+O repositório inclui `vercel.json` com Vite, `npm ci`, `npm run build` e `dist` como pasta publicada. Importa `CarlosGit0519/beleza-perto` no Vercel usando a raiz do repositório (não é preciso definir uma subpasta). Depois de ligar, cada push à branch `main` cria uma nova publicação. Esta publicação contém o frontend; a API Node continua a precisar de um alojamento próprio.
