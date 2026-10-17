@@ -1,57 +1,43 @@
 # Beleza Perto
 
-Protótipo de uma plataforma para encontrar serviços de beleza e recomendações de produtos por região. A versão atual é uma base inicial: não tem parceiros, compras, reservas, contas de utilizador nem dados comerciais reais.
+Protótipo de uma plataforma de beleza para descobrir serviços, inspiração e recomendações de produtos por região. A interface inclui dados inteiramente fictícios para demonstrar a experiência antes de existirem parceiros.
+
+> **Demonstração:** os perfis, avaliações, preços, produtos, fotografias e indicações de disponibilidade são exemplos. Não existem marcações, compras ou recomendações comerciais reais nesta versão.
 
 ## Executar localmente
 
-Requer Node.js 20 ou superior. Na pasta do projeto:
+Requer Node.js 20 ou superior.
 
 ```sh
 npm run dev
 ```
 
-Abre `http://localhost:3000`. A API inicial está em `/api`.
+Abre `http://localhost:3000`. O servidor disponibiliza o frontend e a API demonstrativa.
 
-## API disponível
+## Funcionalidades demonstrativas
+
+- Pesquisa de perfis por nome, categoria e região, com filtros combináveis.
+- Catálogo de perfis com localização, descrição, avaliações e preço meramente indicativo.
+- Favoritos guardados localmente no navegador, sem conta de utilizador ou envio para servidor.
+- Detalhes de perfil e produto em janelas modais.
+- Formulário de interesse para profissionais que confirma a interação, mas não envia nem guarda dados.
+- Categorias, conteúdo editorial e informação regional para Cabo Verde, Portugal e Angola.
+- Layout adaptável a dispositivos móveis.
+
+## API demonstrativa
 
 | Método | Rota | Utilização |
 | --- | --- | --- |
 | GET | `/api/health` | Estado do serviço |
-| GET | `/api/regions` | Regiões e cidades iniciais |
+| GET | `/api/regions` | Regiões e cidades de exemplo |
 | GET | `/api/categories` | Categorias de serviços |
-| GET | `/api/services?region=PT&category=unhas` | Estrutura do catálogo de serviços |
-| GET | `/api/products?region=CV` | Estrutura do catálogo de produtos |
+| GET | `/api/services?region=Portugal&category=Tranças` | Perfis demonstrativos filtrados |
+| GET | `/api/products?category=Maquilhagem` | Produtos demonstrativos filtrados |
 
-Os catálogos devolvem listas vazias enquanto não houver parceiros confirmados.
+## Configuração futura
 
-## Configuração e integrações
+`.env.example` documenta os nomes de configuração reservados para base de dados, email, afiliados e pagamentos. Ainda não estão ligados fornecedores externos, e não se devem colocar chaves secretas no frontend. Antes de adicionar contas, formulários persistentes, marcações ou pagamentos, será necessário selecionar os serviços adequados, desenhar o modelo de dados, adicionar autenticação e proteção contra abuso, e rever privacidade e requisitos legais dos mercados de operação.
 
-1. Copia `.env.example` para `.env` para configuração local. Nunca guardes `.env` no Git.
-2. Configura `DATABASE_URL` quando escolhermos o fornecedor e modelo de dados.
-3. Configura email apenas quando existir domínio e fornecedor transacional.
-4. Usa IDs/links de afiliado só após aprovação nos programas correspondentes.
-5. Pagamentos não estão ligados: as compras de afiliados ocorrem na loja externa.
+## GitHub
 
-Não coloques chaves secretas no HTML ou em código enviado ao navegador. Em produção, guarda-as nos secrets do fornecedor de alojamento.
-
-## Git e GitHub
-
-O projeto está preparado para GitHub Actions. Para ligar a um repositório remoto que cries na tua conta:
-
-```sh
-git init -b main
-git add .
-git commit -m "Preparar base do Beleza Perto"
-git remote add origin https://github.com/TEU_UTILIZADOR/beleza-perto.git
-git push -u origin main
-```
-
-Depois, ativa GitHub Pages ou liga o repositório a um serviço de alojamento que suporte Node.js. O workflow valida a sintaxe da API em cada push e pull request.
-
-## Próximas decisões de produto
-
-- Confirmar nome, domínio e identidade visual.
-- Definir cidades de lançamento em Cabo Verde e Portugal.
-- Escolher alojamento e base de dados quando os primeiros parceiros forem conhecidos.
-- Definir como serão recebidos pedidos de contacto/marcação e como serão moderados os perfis.
-- Rever privacidade, cookies, termos, divulgação de afiliados e requisitos legais para os mercados de operação antes do lançamento público.
+O repositório está em [CarlosGit0519/beleza-perto](https://github.com/CarlosGit0519/beleza-perto). O workflow GitHub Actions executa `npm run check` nos pushes e pull requests para `main`.
