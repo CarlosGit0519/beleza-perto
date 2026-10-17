@@ -1,0 +1,13 @@
+{
+  "name": "beleza-perto",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plataforma de serviços de beleza e produtos recomendados em várias regiões.",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server/index.js",
+    "start": "node server/index.js",
+    "check": "node --check server/index.js && node --check server/routes.js"
+  },
+  "engines": { "node": ">=20" }
+}
