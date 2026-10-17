@@ -1,8 +1,8 @@
 {
-  "name": "beleza-perto",
+  "name": "miriam-beauty",
   "version": "0.1.0",
   "private": true,
-  "description": "Plataforma de serviços de beleza e produtos recomendados em várias regiões.",
+  "description": "Miriam Beauty — plataforma de serviços de beleza e produtos recomendados em várias regiões.",
   "type": "module",
   "scripts": {
     "dev": "vite",

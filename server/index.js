@@ -26,4 +26,4 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(port, () => console.log(`Beleza Perto disponível em http://localhost:${port}`));
+server.listen(port, () => console.log(`Miriam Beauty disponível em http://localhost:${port}`));

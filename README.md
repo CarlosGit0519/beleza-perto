@@ -1,4 +1,4 @@
-# Beleza Perto
+# Miriam Beauty
 
 Protótipo React + TypeScript de uma plataforma de beleza para descobrir serviços, inspiração e recomendações de produtos por região. Os perfis, avaliações, preços, produtos e destinos são dados inteiramente fictícios para demonstrar a experiência antes de existirem parceiros.
 
@@ -54,8 +54,8 @@ npm start
 
 ## GitHub
 
-O repositório está em [CarlosGit0519/beleza-perto](https://github.com/CarlosGit0519/beleza-perto). O workflow GitHub Actions instala dependências, verifica TypeScript e compila o frontend em pushes e pull requests para `main`.
+O código de Miriam Beauty está no repositório GitHub ligado ao projeto. O workflow GitHub Actions instala dependências, verifica TypeScript e compila o frontend em pushes e pull requests para `main`.
 
 ## Publicar o frontend no Vercel
 
-O repositório inclui `vercel.json` com Vite, `npm ci`, `npm run build` e `dist` como pasta publicada. Importa `CarlosGit0519/beleza-perto` no Vercel usando a raiz do repositório (não é preciso definir uma subpasta). Depois de ligar, cada push à branch `main` cria uma nova publicação. Esta publicação contém o frontend; a API Node continua a precisar de um alojamento próprio.
+O repositório inclui `vercel.json` com Vite, `npm ci`, `npm run build` e `dist` como pasta publicada. Importa o repositório Miriam Beauty no Vercel usando a raiz do repositório (não é preciso definir uma subpasta). Depois de ligar, cada push à branch `main` cria uma nova publicação. Esta publicação contém o frontend; a API Node continua a precisar de um alojamento próprio.

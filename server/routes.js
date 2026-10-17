@@ -31,7 +31,7 @@ const filterBy = (items, url, fields) => items.filter(item => fields.every(field
 
 export async function router(req, res, url) {
   if (req.method !== 'GET') return json(res, 405, { error: 'Método não permitido' });
-  if (url.pathname === '/api/health') return json(res, 200, { status: 'ok', service: 'beleza-perto-api' });
+  if (url.pathname === '/api/health') return json(res, 200, { status: 'ok', service: 'miriam-beauty-api' });
   if (url.pathname === '/api/regions') return json(res, 200, { data: regions });
   if (url.pathname === '/api/categories') return json(res, 200, { data: categories });
   if (url.pathname === '/api/services') {

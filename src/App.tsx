@@ -18,7 +18,10 @@ const products: Product[] = [
 
 const imageUrl = (id: string, width = 800) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`;
 const loadFavorites = (): string[] => {
-  try { return JSON.parse(localStorage.getItem('bp-favorites') ?? '[]') as string[]; }
+  try {
+    const stored = localStorage.getItem('miriam-beauty-favorites') ?? '[]';
+    return JSON.parse(stored) as string[];
+  }
   catch { return []; }
 };
 
@@ -43,7 +46,7 @@ export default function App() {
   function toggleFavorite(id: string) {
     const next = favorites.includes(id) ? favorites.filter((item) => item !== id) : [...favorites, id];
     setFavorites(next);
-    localStorage.setItem('bp-favorites', JSON.stringify(next));
+    localStorage.setItem('miriam-beauty-favorites', JSON.stringify(next));
     notify(next.includes(id) ? 'Guardado nos favoritos deste navegador.' : 'Removido dos favoritos.');
   }
 
@@ -65,7 +68,7 @@ export default function App() {
 
   return <>
     <div className="top-note">UMA PLATAFORMA DE BELEZA FEITA PARA DIFERENTES REGIÕES</div>
-    <header className="wrap header"><a className="brand" href="#inicio" aria-label="Beleza Perto — início">beleza<span>perto</span>.</a><nav aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#produtos">Produtos</a><a href="#inspiracao">Inspiração</a><a href="#regioes">Regiões</a></nav><div className="nav-actions"><button className="icon-btn" type="button" aria-label="Ver favoritos" onClick={() => notify(favoriteNames.length ? `Favoritos: ${favoriteNames.join(', ')}` : 'Ainda não guardaste favoritos. Usa o coração nos cartões.')}>♡ <span>{favorites.length}</span></button><a className="nav-cta" href="#profissionais">Para profissionais ↗</a></div></header>
+    <header className="wrap header"><a className="brand" href="#inicio" aria-label="Miriam Beauty — início">Miriam <span>Beauty</span></a><nav aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#produtos">Produtos</a><a href="#inspiracao">Inspiração</a><a href="#regioes">Regiões</a></nav><div className="nav-actions"><button className="icon-btn" type="button" aria-label="Ver favoritos" onClick={() => notify(favoriteNames.length ? `Favoritos: ${favoriteNames.join(', ')}` : 'Ainda não guardaste favoritos. Usa o coração nos cartões.')}>♡ <span>{favorites.length}</span></button><a className="nav-cta" href="#profissionais">Para profissionais ↗</a></div></header>
     <main>
       <section className="wrap hero" id="inicio"><div><div className="eyebrow">O teu espaço de beleza</div><h1>Beleza que<br/><em>te aproxima.</em></h1><p>Descobre profissionais, guarda as tuas inspirações e encontra produtos para o teu estilo — começamos em Cabo Verde e Portugal, com espaço para crescer.</p><div className="hero-actions"><a className="button" href="#servicos">Encontrar serviços ↗</a><a className="button light" href="#produtos">Explorar produtos</a></div><div className="hero-foot">Pesquisa por região · Favoritos · Recomendações editoriais</div></div><div className="hero-image"><img src={imageUrl('photo-1522337360788-8b13dee7a37e', 1000)} alt="Profissional a cuidar do cabelo de uma cliente"/><div className="image-tag">O teu estilo, ao teu ritmo<small>Uma ideia ilustrativa de plataforma</small></div></div></section>
       <div className="trust-row"><div className="wrap trust-items"><div><b>Serviços</b>Encontra o teu estilo</div><div><b>Produtos</b>Ideias para a tua rotina</div><div><b>Regiões</b>CV · PT · AO e mais</div><div><b>Comunidade</b>Feita para crescer contigo</div></div></div>
@@ -76,7 +79,7 @@ export default function App() {
       <section className="section white"><div className="wrap"><div className="section-head"><div><div className="eyebrow">Como poderá funcionar</div><h2>Do primeiro clique ao teu próximo look</h2></div><p>Um percurso simples para clientes e profissionais.</p></div><div className="steps"><article className="step"><b>01</b><h3>Escolhe a região</h3><p>Seleciona o país e a cidade para explorar opções relevantes.</p></article><article className="step"><b>02</b><h3>Descobre e compara</h3><p>Consulta serviços, estilos, indicações e produtos recomendados.</p></article><article className="step"><b>03</b><h3>Contacta diretamente</h3><p>Quando houver parceiros, combina disponibilidade e detalhes com o profissional ou a loja.</p></article></div></div></section>
       <section className="join" id="profissionais"><div className="wrap join-inner"><div><div className="eyebrow">És profissional de beleza?</div><h2>O teu talento merece ser descoberto.</h2><p>Estamos a desenhar uma plataforma para dar visibilidade a profissionais. Deixa uma manifestação de interesse demonstrativa — não será enviada nem guardada num servidor nesta versão.</p></div><button className="button" onClick={() => setModal({ title: 'Manifesta o teu interesse', content: 'Este formulário é apenas uma demonstração e não envia nem guarda dados.' })}>Manifestar interesse ↗</button></div></section>
     </main>
-    <footer className="footer"><div className="wrap"><div className="footer-top"><div><a className="brand" href="#inicio">beleza<span>perto</span>.</a><p>Beleza, cuidado e inspiração para diferentes regiões.</p></div><div className="footer-links"><a href="#servicos">Serviços</a><a href="#produtos">Produtos</a><a href="#inspiracao">Inspiração</a><a href="#profissionais">Profissionais</a></div></div><div className="legal"><span>© 2026 Beleza Perto · Protótipo ilustrativo</span><span>Privacidade · Termos · Divulgação de afiliados</span></div></div></footer>
+    <footer className="footer"><div className="wrap"><div className="footer-top"><div><a className="brand" href="#inicio">Miriam <span>Beauty</span></a><p>Beleza, cuidado e inspiração para diferentes regiões.</p></div><div className="footer-links"><a href="#servicos">Serviços</a><a href="#produtos">Produtos</a><a href="#inspiracao">Inspiração</a><a href="#profissionais">Profissionais</a></div></div><div className="legal"><span>© 2026 Miriam Beauty · Protótipo ilustrativo</span><span>Privacidade · Termos · Divulgação de afiliados</span></div></div></footer>
     {modal && <div className="modal open" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onMouseDown={(event) => { if (event.target === event.currentTarget) setModal(null); }}><div className="modal-card"><button className="modal-close" aria-label="Fechar" onClick={() => setModal(null)}>×</button><div className="eyebrow">Demonstração</div><h2 id="modalTitle">{modal.title}</h2><p className="modal-text">{modal.content}</p>{modal.title.includes('interesse') && <form onSubmit={submitInterest}><label>Nome profissional<input required placeholder="Como te chamam?"/></label><label>Serviço principal<select><option>Tranças</option><option>Cabelo</option><option>Unhas</option><option>Maquilhagem</option></select></label><label>País ou região<input placeholder="Ex.: Praia, Cabo Verde"/></label><button className="button">Ver demonstração</button></form>}<div className="notice">Nenhuma marcação, compra ou candidatura será enviada. Os dados apresentados são fictícios.</div></div></div>}
     <div className={`toast ${toast ? 'show' : ''}`} role="status" aria-live="polite">{toast}</div>
   </>;
